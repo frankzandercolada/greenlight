@@ -311,7 +311,7 @@ en:
     search:
       start: Start searching...
   landing:
-    about: colada.webinars is a modern platform for conveying information and knowledge about our applications and services. Interested parties and customers can take part in our virtual meetings and presentations via this central platform. Participation does not require an installation and runs exclusively in your browser.<br><br>To join a Webinar you will receive a link directly from the organizer or please register directly on this page. If you have any questions, please do not hesitate to contact us at <a href="mailto:support@colada.biz">support@colada.biz</a>.<br><br>You can find a quick guide as PDF here.
+    about: colada.webinars is a modern platform for conveying information and knowledge about our applications and services. Interested parties and customers can take part in our virtual meetings and presentations via this central platform. Participation does not require an installation and runs exclusively in your browser.<br><br>To join a Webinar you will receive a link directly from the organizer or please register directly on this page. If you have any questions, please do not hesitate to contact us at <a href="mailto:support@colada.biz">support@colada.biz</a>.<br><br>You can find a quick guide as <a href="https://kurs.coladaproxy.ch/bbbrefshort.pdf">PDF</a> here.
 
 
     welcome: Welcome to colada.Webinars.
