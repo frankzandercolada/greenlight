@@ -286,7 +286,7 @@ de_DE:
     email: E-Mail
     submit: Abschicken
   go_back: Zurück
-  greenlight: Greenlight
+  greenlight: colada.Webinars
   header:
     all_recordings: Alle Aufzeichnungen
     dropdown:
@@ -310,9 +310,9 @@ de_DE:
     search:
       start: Suche beginnen...
   landing:
-    about: "%{href} ist eine benutzerfreundliche Oberfläche für das Open-Source-Webkonferenzsystem BigBlueButton. Sie können Ihre eigenen Räume erstellen, um Konferenzen zu veranstalten oder können bestehenden Konferenzen über einen kurzen und bequemen Link beitreten."
-    welcome: Willkommen zu BigBlueButton.
-    video: Schauen Sie sich unsere Anleitung zur Verwendung von Greenlight an
+    about: colada.webinars ist eine moderne Plattform für die Vermittlung von Informationen und Wissen rund um unsere Applikationen und Services. Über diese zentrale Plattform können Interessenten und Kunden an unseren virtuellen Meetings und Präsentionen teilnehmen. Die Teilnahme setzt keine Installation voraus und läuft ausschliesslich in ihrem Browser.<br><br>Um einem Webinar beizutreten erhaltenn die vom Organisator direkt einen Link oder registrieren sich bitte direkt auf dieser Seite. Für Fragen stehen wir jederzeit gerne unter <a href="mailto:support@colada.biz">support@colada.biz</a> zur Verfügung. <br><br>Eine Kurzanleitung als PDF finden sie hier.
+    welcome: Willkommen bei colada.Webinars
+    video:   
     upgrade: "Zeigen Sie mir, wie ich auf Version 2.0. update!"
     version: "Wir haben eine neue Version von Greenlight veröffentlicht, aber Ihre Datenbank ist damit nicht kompatibel."
   language_default: Voreinstellung (Browsersprache)
