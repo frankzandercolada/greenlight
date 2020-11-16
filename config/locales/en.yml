@@ -284,13 +284,13 @@ en:
   footer:
     legal: Terms
     privpolicy: Privacy Policy
-    powered_by: Powered by .
+    powered_by: Powered by %{href}.
   forgot_password:
     subtitle: Forgot Password
     email: Email
     submit: Submit
   go_back: Go back
-  greenlight: "colada"
+  greenlight: colada
   header:
     all_recordings: All Recordings
     dropdown:

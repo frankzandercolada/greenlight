@@ -283,13 +283,13 @@ de_DE:
   footer:
     legal: Impressum
     privpolicy: Datenschutzerklärung
-    powered_by: "Bereitgestellt durch ."
+    powered_by: "Bereitgestellt durch %{href}."
   forgot_password:
     subtitle: Passwort vergessen
     email: E-Mail
     submit: Abschicken
   go_back: Zurück
-  greenlight: "colada"
+  greenlight: colada
   header:
     all_recordings: Alle Aufzeichnungen
     dropdown:
