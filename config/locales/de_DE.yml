@@ -289,7 +289,7 @@ de_DE:
     email: E-Mail
     submit: Abschicken
   go_back: Zurück
-  greenlight: colada
+  greenlight: "colada"
   header:
     all_recordings: Alle Aufzeichnungen
     dropdown:
