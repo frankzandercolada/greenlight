@@ -107,7 +107,7 @@ de_DE:
       shared_access:
         info: "Wenn diese Option deaktiviert wird, wird dadurch der Button aus den Raumoptionen entfernt und verhindert, dass Nutzer Räume teilen können"
         title: Nutzern erlauben Räume zu teilen
-      subtitle: Greenlight individuell anpassen
+      subtitle: Portal individuell anpassen
       tabs:
         appearance: Darstellung
         administration: Administration
@@ -217,7 +217,7 @@ de_DE:
   bigbluebutton_exception: "Ups, beim Start der Konferenz ist ein Fehler aufgetreten!"
   cancel: Abbrechen
   cookies:
-    cookie_info: Cookies helfen uns bei der Bereitstellung unserer Dienste. Durch die Nutzung der Dienste stimmen Sie der Nutzung von Cookies zu.
+    cookie_info: Technisch notwendige Cookies helfen uns bei der Bereitstellung unserer Dienste. Durch die Nutzung der Dienste stimmen Sie der Nutzung dieser Cookies zu.
     cookie_button: Ich stimme zu
   copied: Kopiert
   copy: Kopieren
@@ -289,7 +289,7 @@ de_DE:
     email: E-Mail
     submit: Abschicken
   go_back: Zurück
-  greenlight: Greenlight
+  greenlight: colada
   header:
     all_recordings: Alle Aufzeichnungen
     dropdown:
@@ -313,9 +313,9 @@ de_DE:
     search:
       start: Suche beginnen...
   landing:
-    about: "%{href} ist eine benutzerfreundliche Oberfläche für das Open-Source-Webkonferenzsystem BigBlueButton. Sie können Ihre eigenen Räume erstellen, um Konferenzen zu veranstalten oder können bestehenden Konferenzen über einen kurzen und bequemen Link beitreten."
-    welcome: Willkommen zu BigBlueButton.
-    video: Schauen Sie sich unsere Anleitung zur Verwendung von Greenlight an
+    about: "Verschiedene Themen rund ums Auge einfach und verständlich erklärt – das erwartet Sie bei unseren Online-Vorträgen.<br>Regelmässig werden Sie unsere Referenten über aktuelle Themen zum Inneren des Auges, aber auch über die Augenoberfläche und über den Bereich um das Auge herum informieren. Krankheitsbilder, Symptome, Behandlungsmöglichkeiten und Aktuelles aus der Forschung stehen dann auf der Online-Agenda.Im Anschluss zu allen Kurzvorträgen haben Sie die Möglichkeit, den Experten der Vista online Ihre Fragen zu stellen und sofort Antworten zu bekommen."
+    welcome: Willkommen zu Experten im Dialog.
+    video: 
     upgrade: "Zeigen Sie mir, wie ich auf Version 2.0. update!"
     version: "Wir haben eine neue Version von Greenlight veröffentlicht, aber Ihre Datenbank ist damit nicht kompatibel."
   language_default: Voreinstellung (Browsersprache)
@@ -329,10 +329,10 @@ de_DE:
         signin: "Um auf Ihre persönlichen Räume zuzugreifen, klicken Sie bitte auf den unten stehenden Button und loggen Sie sich ein. "
         signin_link: Einloggen
         signup:
-          info: Ein neuer Nutzer hat sich bei Greenlight registriert.
-          more-info: "Um diesem Nutzer Zugriff auf Greenlight zu geben, müssen Sie sein Konto in den Organisationseinstellungen genehmigen."
+          info: Ein neuer Nutzer hat sich registriert.
+          more-info: "Um diesem Nutzer Zugriff zu geben, müssen Sie sein Konto in den Organisationseinstellungen genehmigen."
           admins_link: Organisationsseite besuchen
-          subject: Neue Greenlight Nutzerregistrierung
+          subject: Neue Nutzerregistrierung
           username: "Der Nutzer hat sich mit dem Namen %{name} und der E-Mail %{email} registriert."
         subject: Konto genehmigt
         username: "Ihr Nutzername ist %{email}."
@@ -346,9 +346,9 @@ de_DE:
         signup_info: "Um sich mit Ihrer E-Mail anzumelden, klicken Sie den untenstehenden Button und folgen Sie den Schritten."
         signup_link: Registrieren
         signup:
-          info: Ein eingeladener Nutzer hat sich bei Greenlight registriert.
+          info: Ein eingeladener Nutzer hat sich registriert.
           admins_link: Organisationsseite besuchen
-          subject: Registrierung neuer Greenlight-Nutzer
+          subject: Registrierung neuer Nutzer
           username: "Der Nutzer hat sich mit dem Namen %{name} und der E-Mail %{email} registriert."
         subject: Einladung zur BigBlueButton-Teilnahme
         username: "Ihr Nutzername ist %{email}."
