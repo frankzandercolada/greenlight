@@ -283,7 +283,7 @@ de_DE:
   footer:
     legal: Impressum
     privpolicy: Datenschutzerklärung
-    powered_by: "Bereitgestellt durch %{href}."
+    powered_by: "Bereitgestellt durch ."
   forgot_password:
     subtitle: Passwort vergessen
     email: E-Mail
