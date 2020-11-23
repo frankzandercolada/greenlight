@@ -51,3 +51,4 @@ coverage*
 /atom-sftp-sync.json
 app/views/.DS_Store
 config/.DS_Store
+.DS_Store

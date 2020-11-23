@@ -286,7 +286,7 @@ de_DE:
     email: E-Mail
     submit: Abschicken
   go_back: Zurück
-  greenlight: colada.Webinars
+  greenlight: colada.webinars
   header:
     all_recordings: Alle Aufzeichnungen
     dropdown:
@@ -311,7 +311,7 @@ de_DE:
       start: Suche beginnen...
   landing:
     about: colada.webinars ist eine moderne Plattform für die Vermittlung von Informationen und Wissen rund um unsere Applikationen und Services. Über diese zentrale Plattform können Interessenten und Kunden an unseren virtuellen Meetings und Präsentionen teilnehmen. Die Teilnahme setzt keine Installation voraus und läuft ausschliesslich in ihrem Browser.<br><br>Um einem Webinar beizutreten erhalten Sie vom Organisator direkt einen Link oder registrieren sich bitte direkt auf dieser Seite. Für Fragen stehen wir jederzeit gerne unter <a href="mailto:support@colada.biz">support@colada.biz</a> zur Verfügung. <br><br>Eine Kurzanleitung als <a href="https://kurs.coladaproxy.ch/bbbrefshort.pdf">PDF</a> finden sie hier.
-    welcome: Willkommen bei colada.Webinars
+    welcome: Willkommen bei colada.webinars
     video:   
     upgrade: "Zeigen Sie mir, wie ich auf Version 2.0. update!"
     version: "Wir haben eine neue Version von Greenlight veröffentlicht, aber Ihre Datenbank ist damit nicht kompatibel."
