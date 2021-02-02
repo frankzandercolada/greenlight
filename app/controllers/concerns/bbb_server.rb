@@ -62,7 +62,7 @@ module BbbServer
   def start_session(room, options = {})
     create_options = {
       record: options[:record].to_s,
-      logoutURL: https://vista.ch/einblick/experten-im-dialog/ || '',
+      logoutURL: options[:meeting_logout_url] || '',
       moderatorPW: room.moderator_pw,
       attendeePW: room.attendee_pw,
       moderatorOnlyMessage: options[:moderator_message],
