@@ -31,6 +31,7 @@
         <%= f.submit t("room.login"), class: "btn btn-primary btn-sm col-sm-3 form-control join-form" %>
       </div>
     <% end %>
+  <% else %>
     <%= form_for room_path(@room), method: :post do |f| %>
       <div class="input-group">
         <%= f.hidden_field(:search, :value => params[:search])%>
