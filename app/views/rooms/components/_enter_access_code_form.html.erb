@@ -22,6 +22,15 @@
           value: "" ,
           autofocus: true,
           maxlength: 26 %>
+          <%= f.text_field :join_name,
+          required: true,
+          class: "form-control join-form",
+          placeholder: t("enter_your_name"),
+          value: "#{@name}",
+          readonly: !current_user.nil?, 
+          autofocus: true,
+          maxlength: 26
+          %>    
 	<span class="input-group-append">
 	  <%= f.button t("room.login"), type: :submit, class: "btn btn-primary btn-sm px-7 form-control join-form" %>
 	</span>
