@@ -133,6 +133,7 @@ class RoomsController < ApplicationController
 
     logger.info "Support: #{current_user.present? ? current_user.email : @join_name} is joining room #{@room.uid}"
     join_room(default_meeting_options)
+    
   end
 
   # DELETE /:room_uid
@@ -323,9 +324,13 @@ class RoomsController < ApplicationController
   # GET /:room_uid/logout
   def logout
     logger.info "Support: #{current_user.present? ? current_user.email : 'Guest'} has left room #{@room.uid}"
-
     # Redirect the correct page.
-    redirect_to @room
+    settings = JSON.parse(@room.room_settings)
+    if settings["logoutUrl"].blank?
+       redirect_to @room
+    else
+       redirect_to settings["logoutUrl"]
+    end
   end
 
   # POST /:room_uid/login
@@ -339,9 +344,44 @@ class RoomsController < ApplicationController
 
     if session[:access_code] != @room.access_code && !valid_moderator_access_code(session[:moderator_access_code])
       flash[:alert] = I18n.t("room.access_code_required")
+#      redirect_to room_path(@room.uid)
     end
 
-    redirect_to room_path(@room.uid)
+    #redirect_to room_path(@room.uid)
+
+     return redirect_to root_path,
+      flash: { alert: I18n.t("administrator.site_settings.authentication.user-info") } if auth_required
+
+    @shared_room = room_shared_with_user
+
+    unless @room.owned_by?(current_user) || @shared_room
+      # Don't allow users to join unless they have a valid access code or the room doesn't have an access codes
+      valid_access_code = !@room.access_code.present? || @room.access_code == session[:access_code]
+      if !valid_access_code && !valid_moderator_access_code(session[:moderator_access_code])
+        return redirect_to room_path(room_uid: params[:room_uid]), flash: { alert: I18n.t("room.access_code_required") }
+      end
+
+      # Assign join name if passed.
+      if room_params[:join_name]
+        @join_name = room_params[:join_name]
+        logger.info "Support: chill by me "
+      elsif !room_params[:join_name]
+        # Join name not passed.
+        logger.info "Support: chill by me rooooooooo"
+
+        return redirect_to root_path
+      end
+    end
+
+    # create or update cookie with join name
+    cookies.encrypted[:greenlight_name] = @join_name unless cookies.encrypted[:greenlight_name] == @join_name
+
+    save_recent_rooms
+
+    logger.info "Support: #{current_user.present? ? current_user.email : @join_name} is joining room #{@room.uid}"
+     params[:join_name] = room_params[:join_name]
+    join_room(default_meeting_options)
+
   end
 
   private
@@ -353,15 +393,15 @@ class RoomsController < ApplicationController
       anyoneCanStart: options[:anyone_can_start] == "1",
       joinModerator: options[:all_join_moderator] == "1",
       recording: options[:recording] == "1",
+      logoutUrl: options[:logoutUrl],
     }
-
     room_settings.to_json
   end
 
   def room_params
-    params.require(:room).permit(:name, :auto_join, :mute_on_join, :access_code,
+    params.require(:room).permit( :name , :auto_join, :mute_on_join, :access_code,
       :require_moderator_approval, :anyone_can_start, :all_join_moderator,
-      :recording, :presentation, :moderator_access_code)
+      :recording, :logoutUrl , :join_name, :presentation, :moderator_access_code)
   end
 
   # Find the room from the uid.

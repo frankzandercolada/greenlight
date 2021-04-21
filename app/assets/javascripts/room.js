@@ -18,7 +18,21 @@
 $(document).on('turbolinks:load', function(){
   var controller = $("body").data('controller');
   var action = $("body").data('action');
+  // stop input number
+  function testInput(event) {
+     if (event.type == "keypress"){
+       var value = String.fromCharCode(event.which);
+       var pattern = new RegExp(/[a-zåäö ]/i);;
+       return pattern.test(value);
+    }else{
+      var old_value = $('input[name*="[join_name]"]').val();
+      var new_value = event.originalEvent.clipboardData.getData('text')
+      var pattern = new RegExp(/[0-9]+/g);
+      return !pattern.test(new_value);
 
+    }
+  }
+  $('input[name*="[join_name]"]').bind('keypress paste', testInput);
   // highlight current room
   $('.room-block').removeClass('current');
   $('a[href="' + window.location.pathname + '"] .room-block').addClass('current');
@@ -284,6 +298,7 @@ function updateCurrentSettings(settings_path){
     $("#room_anyone_can_start").prop("checked", $("#room_anyone_can_start").data("default") || settings.anyoneCanStart)
     $("#room_all_join_moderator").prop("checked", $("#room_all_join_moderator").data("default") || settings.joinModerator)
     $("#room_recording").prop("checked", $("#room_recording").data("default") || Boolean(settings.recording))
+    $('input[name*="[logoutUrl]"]').val(settings.logoutUrl)
   })
 }
 
