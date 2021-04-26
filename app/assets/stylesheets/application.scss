@@ -52,7 +52,7 @@
 }
 
 html, body {
-  font-family: "Source Sans Pro" !important;
+  font-family: "TitilliumWeb" !important;
   position: relative;
   width: 100%;
   height: 100%;
@@ -186,4 +186,8 @@ table {
 
 .btn i {
   transition: all .15s;
+}
+
+.nav-icon i {
+  width: 35px;
 }
