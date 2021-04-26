@@ -1,0 +1,204 @@
+
+
+
+
+
+
+.overview-panel{ padding: 25px 0; }
+
+.overview-panel .nav.nav-pills li{ padding: 0 15px; }
+
+.overview-panel .nav.nav-pills li a{ color: #333 !important; }
+
+.overview-panel .tab-content.well{ padding: 0 15px; margin-top: 25px; }
+
+.overview-panel .tab-content.well .tab-pane .card{ box-shadow: 0 0 8px rgba(0,0,0,0.1);    
+
+ border: 1px solid rgba(0,0,0,.125);
+
+border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+
+.overview-panel .nav.nav-pills li { width: 33%; }
+
+.overview-panel .nav.nav-pills li:last-child{ padding-right: 0 }
+
+.overview-panel .nav.nav-pills li  a, .overview-panel .nav.nav-pills li .active{ display: block; width: 100%;  background-color:transparent !important; color:#007bff; padding: 0px !important; }
+
+.overview-panel .card-header{ background-color: #FFF; font-size: 24px; font-weight: normal; color: #000; }
+
+.overview-panel .nav.nav-pills li .card{ box-shadow: 0 0 8px rgba(0,0,0,0.1); transition:all 0.3s ease-out; width: 100%;  }
+
+.overview-panel .nav.nav-pills li:hover .card, .overview-panel .nav.nav-pills li .active .card{ border-color: #007bff; }
+
+
+
+
+
+.overview-panel .table thead th{ border-top: none; border-bottom: none; }
+
+
+
+.overview-panel .card-body{ min-height: 250px; }
+
+.overview-panel .meeting-title{ padding: 0 15px; margin-bottom: 30px;  }
+
+.overview-panel .meeting-title .title{ font-size: 28px; font-weight: bold; line-height: 100%; }
+
+.overview-panel .meeting-title .meeting-time{ font-style: italic; font-size: 14px; }
+
+
+
+.overview-panel .meeting-title .csvbtn{ border-radius: 55px; -webkit-border-radius: 55px; -moz-border-radius: 55px; }
+
+
+
+
+
+.overview-panel .meetingduration{ display: flex; justify-content: space-between; align-items: center; border-bottom: solid 1px rgba(0,0,0,.161) ;
+
+ margin-bottom: 15px; padding-bottom: 15px; }
+
+
+
+.overview-panel .meetingduration .iconbox{ display: flex; justify-content:flex-start; align-items: center;  }
+
+.overview-panel .meetingduration .iconbox span{ font-size: 24px; color: #333; display:inline-block; margin-left: 15px; }
+
+.overview-panel .meetingduration .txtbox{font-size: 24px; color: #333; font-weight: normal; }
+
+
+
+
+
+
+
+.overview-panel .meetinguserinfo{ display: flex; justify-content: space-between; align-items: center; padding-top: 25px; }
+
+
+
+.overview-panel .meetinguserinfo .moderatorbox, .overview-panel .meetinguserinfo .viewersbox{ text-align: center; width: 50%; }
+
+
+
+.overview-panel .meetinguserinfo .txtinfo{ font-size: 24px; font-weight: bold; color: #333; }
+
+.overview-panel .meetinguserinfo .txtinfo span{ display: block; width: 100%; font-size: 16px; font-weight: normal; margin-top:5px;  }
+
+.overview-panel .meetinguserinfo .iconbox{ margin-bottom: 5px; }
+
+
+
+
+
+.overview-panel .progressbox{ margin-bottom: 10px;  }
+
+.overview-panel .progressbox span{ display: block; width: 100%; font-style: italic; }
+
+.overview-panel .progressbox .statusrow { display: flex; justify-content: space-between; }
+
+.overview-panel .progressbox .statusrow span:first-child{ text-align: left; width: 80%;}
+.overview-panel .progressbox .statusrow span:last-child{ text-align: right; width: 20%; }
+
+
+
+
+
+.pollingList ul{ padding: 0px; margin: 0px;  display: flex; justify-content: space-between; flex-wrap: wrap;}
+
+.pollingList ul li{ list-style: none; width: 50%  !important; }
+
+.pollingList .pollHeader{ border-bottom: solid 1px rgba(0,0,0,.161); }
+
+.pollingList .pollHeader ul li{ font-size: 20px; font-weight: normal; margin-bottom: 15px }
+
+
+
+.pollingList .pollBoddy{ max-height: 160px; overflow-y: auto; overflow-x: hidden; }
+
+.pollingList .pollBoddy ul li{ padding: 10px 15px !important; font-size: 16px; font-weight: bold; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

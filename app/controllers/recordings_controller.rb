@@ -19,8 +19,32 @@
 class RecordingsController < ApplicationController
   before_action :find_room
   before_action :verify_room_ownership
+  require( Rails.root.join('bbb-events', 'bbbevents.rb'))
 
   META_LISTED = "gl-listed"
+  def recorded_list
+    path = "public/#{params[:record_id]}/events.xml"
+    clear_file(params[:record_id])
+    get_file_via_shh(params[:record_id])
+    if File.exist?(path)
+      @recording = BBBEvents.parse(path)
+      @data = @recording.to_h
+    else
+      redirect_to root_url
+    end
+  end
+  def recorded_list_download
+    path = "public/#{params[:record_id]}/events.xml"
+    clear_file(params[:record_id])
+    get_file_via_shh(params[:record_id]) 
+    if File.exist?(path)   
+      recording = BBBEvents.parse(path)
+      recording.create_csv(Rails.root.join('public', 'data.csv'))
+      send_file(Rails.root.join('public', 'data.csv'))
+    else
+      redirect_to root_url
+    end
+  end
 
   # POST /:meetingID/:record_id
   def update
@@ -59,4 +83,25 @@ class RecordingsController < ApplicationController
   def verify_room_ownership
     redirect_to root_path if !@room.owned_by?(current_user) && !current_user&.role&.get_permission("can_manage_rooms_recordings")
   end
+
+  def get_file_via_shh(record_id)
+      require Rails.root.join('net', 'ssh.rb')
+      require Rails.root.join('net', 'sftp.rb')
+      logger.error "no no no ++++ no no #{ ENV['SERVER_PASSWORD']}"
+
+      Net::SFTP.start(ENV['SERVER_IP'], ENV['SERVER_USER'], :password => ENV['SERVER_PASSWORD']) do |sftp|
+        directory_name = "public/#{record_id}"
+        Dir.mkdir(directory_name) unless File.exists?(directory_name)
+        begin
+          sftp.download!("/var/bigbluebutton/recording/raw/#{record_id}/events.xml" ,"public/#{record_id}/events.xml")
+        rescue 
+          
+        end
+      end  
+  end 
+
+  def clear_file(record_id)
+    File.delete("public/#{record_id}/events.xml") if File.exist?("public/#{record_id}/events.xml")
+  end
+
 end
