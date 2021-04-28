@@ -42,6 +42,62 @@ module RecordingsHelper
     Rails.configuration.recording_thumbnails
   end
 
+  def students_speaking(engagement)
+    total_speak = 0
+    engagement.each do |h| 
+      if h[:talks] > 0 
+        total_speak += 1
+      end
+    end
+    html = "<div class='statusrow'><span># of Students Speaking</span><span>#{total_speak}/#{engagement.length}</span></div><div class='progress'><div class='progress-bar bg-warning' role='progressbar' style='width: #{total_speak/engagement.length.to_f * 100.0}%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div></div>"
+    return html.html_safe
+  end
+
+  def students_messaging(engagement)
+    total_chats = 0
+    engagement.each do |h| 
+      if h[:chats] > 0 
+        total_chats += 1
+      end
+    end
+    html = "<div class='statusrow'><span># of Students Speaking</span><span>#{total_chats}/#{engagement.length}</span></div><div class='progress'><div class='progress-bar bg-warning' role='progressbar' style='width: #{total_chats/engagement.length.to_f * 100.0}%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div></div>"
+    return html.html_safe
+  end
+
+  def students_messaging(engagement)
+    total_chats = 0
+    engagement.each do |h| 
+      if h[:chats] > 0 
+        total_chats += 1
+      end
+    end
+    html = "<div class='statusrow'><span># of Students Messaging</span><span>#{total_chats}/#{engagement.length}</span></div><div class='progress'><div class='progress-bar bg-warning' role='progressbar' style='width: #{total_chats/engagement.length.to_f * 100.0}%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div></div>"
+    return html.html_safe
+  end
+
+  def students_emojis(engagement)
+    total_emojis = 0
+    engagement.each do |h| 
+      if h[:emojis] > 0 
+        total_emojis += 1
+      end
+    end
+    html = "<div class='statusrow'><span># of Students Using Emojis</span><span>#{total_emojis}/#{engagement.length}</span></div><div class='progress'><div class='progress-bar bg-warning' role='progressbar' style='width: #{total_emojis/engagement.length.to_f * 100.0}%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div></div>"
+    return html.html_safe
+  end
+  
+  def students_raisehand(engagement)
+    total_raisehand = 0
+    engagement.each do |h| 
+      if h[:raisehand] > 0 
+        total_raisehand += 1
+      end
+    end
+    html = "<div class='statusrow'><span># of Students Raising Hands</span><span>#{total_raisehand}/#{engagement.length}</span></div><div class='progress'><div class='progress-bar bg-warning' role='progressbar' style='width: #{total_raisehand/engagement.length.to_f * 100.0}%' aria-valuenow='0' aria-valuemin='0' aria-valuemax='100'></div></div>"
+    return html.html_safe
+  end
+  
+
   private
 
   # Returns length of the recording as a string

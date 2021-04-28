@@ -1,0 +1,6 @@
+require Rails.root.join('bbb-events', 'bbbevents', 'base.rb')
+require Rails.root.join('bbb-events', 'bbbevents', 'version.rb')
+require Rails.root.join('bbb-events', 'bbbevents', 'attendee.rb')
+require Rails.root.join('bbb-events', 'bbbevents', 'events.rb')
+require Rails.root.join('bbb-events', 'bbbevents', 'poll.rb')
+require Rails.root.join('bbb-events', 'bbbevents', 'recording.rb')

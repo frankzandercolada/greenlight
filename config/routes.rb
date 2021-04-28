@@ -141,6 +141,8 @@ Rails.application.routes.draw do
   scope '/:meetingID' do
     # Manage recordings
     scope '/:record_id' do
+      get '/recorded-list', to: 'recordings#recorded_list', as: :recorded_list
+      get '/recorded-list/csv', to: 'recordings#recorded_list_download', as: :recorded_list_download
       post '/', to: 'recordings#update', as: :update_recording
       patch '/', to: 'recordings#rename', as: :rename_recording
       delete '/', to: 'recordings#delete', as: :delete_recording

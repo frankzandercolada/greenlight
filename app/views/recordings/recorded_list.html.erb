@@ -1,0 +1,207 @@
+
+<div class="container-fluid">
+  <section class="overview-panel">
+    <div class="meeting-title"> 
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="title"> <%= @data[:metadata][:meeting_name] %> </div>
+          <div class="meeting-time"><%= @data[:start] %></div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 text-right">
+          <a href="<%= recorded_list_download_url(params[:meetingID],params[:record_id]) %>" class="btn btn-outline-secondary csvbtn">Download CSV</a>
+        </div>
+      </div>
+    </div>
+    <!-- Nav pills -->
+    <ul class="nav nav-pills" id="pills-tab" role="tablist" data-mouse="hover">
+      <li class="active">
+        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+          <div class="card">
+            <div class="card-header">
+              Overview
+            </div>
+            <div class="card-body">
+              <div class="meetingduration">
+                <div class="iconbox">
+                  <img src="http://pavedev.babasolution.com/b/assets/bbb-event/images/clock-icon.png" alt=""> <span>duration</span>
+                </div>
+                <div class="txtbox"><%= @data[:duration] %></div>
+              </div>
+              <div class="meetinguserinfo">
+                <div class="moderatorbox">
+                  <div class="iconbox">
+                    <img src="http://pavedev.babasolution.com/b/assets/bbb-event/images/moderators-icon.png" alt="">
+                  </div>
+                  <div class="txtinfo">
+                    <%= @recording.moderators&.length %>          <span>Moderators</span>
+                  </div>
+                </div>
+                <div class="viewersbox">
+                  <div class="iconbox">
+                    <img src="http://pavedev.babasolution.com/b/assets/bbb-event/images/viewers-icon.png" alt="">
+                  </div>
+                  <div class="txtinfo">
+                    <%= @recording.viewers&.length %>          <span>Viewers</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile-off" aria-selected="false">
+          <div class="card">
+            <div class="card-header">
+              Attention
+            </div>
+            <% engagement = @recording.attendees.map(&:engagement) %>
+            <div class="card-body">
+              <div class="progressbox">
+                <%= students_speaking(engagement) %>
+              </div>    
+              <div class="progressbox">
+                <%= students_messaging(engagement) %>
+              </div>
+              <div class="progressbox">
+                <%= students_emojis(engagement) %>
+              </div>
+              <div class="progressbox">  
+                <%= students_raisehand(engagement) %>
+              </div>    
+            </div>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact-off" aria-selected="false">
+          <div class="card">
+            <div class="card-header">
+              Polling (<%= @recording.polls.length %>)
+            </div>
+            <div class="card-body">
+              <div class="pollingList">
+                <div class="pollHeader">
+                  <ul>
+                    <li>Polls</li>
+                    <li>Responses</li>
+                  </ul>
+                </div>
+                <div class="pollBoddy">
+                  <% @recording.polls.each_with_index do |poll,index| %>
+                  <ul>
+                    <li>Poll <%= index+1 %></li>
+                    <li><%= poll.votes.length %></li>
+                  </ul>
+                  <% end %>
+                  <% if @recording.polls.blank? %>
+                   <div class="pollBoddy">N/A</div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <div class="tab-content well" id="pills-tabContent">
+      <div  class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div class="card">
+          <div class="card-header">
+            Overview
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Join DateTime</th>
+                  <th scope="col">Leave DateTime</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @recording.attendees.each_with_index do |user,index| %>
+                  <tr>
+                    <th scope="row"><%= index+1 %></th>
+                    <td><%= user.name %></td>
+                    <td><%= user.moderator ? "MODERATOR" : "USER"%></td>
+                    <td><%= user.joins.join(", ") %> </td>
+                    <td><%= user.leaves.join(", ") %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div class="card">
+          <div class="card-header">
+            Attention
+          </div>
+          <div class="card-body">
+            <table class="table ">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Participant</th>
+                  <th scope="col">Talk Time</th>
+                  <th scope="col">Messages</th>
+                  <th scope="col">Emojis</th>
+                  <th scope="col">Hand Raises</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @recording.attendees.each_with_index do | user,index | %>
+                  <tr>
+                    <th scope="row"><%= index+1 %></th>
+                    <td><%= user.name %></td>
+                    <% engagement = user.engagement %>
+                    <td><%= engagement[:talk_time] %></td>
+                    <td><%= engagement[:chats] %></td>
+                    <td><%= engagement[:emojis] %></td>
+                    <td><%= engagement[:raisehand] %></td>
+                  </tr>
+                <% end %>         
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+        <div class="card">
+          <div class="card-header">
+            Polling
+          </div>
+          <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <% @recording.polls.each_with_index do |poll,index| %>
+                      <th scope="col">Poll <%= index+1 %></th>
+                    <% end %>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @recording.attendees.each_with_index do |user , index| %>
+                    <tr>
+                      <th scope="row"><%= index+1 %></th>
+                      <td><%= user.name %></td>
+                      <% @recording.polls.each do |poll| %>
+                        <td><%= !poll.votes.blank? and poll.votes["#{user.ext_user_id}"] ? poll.votes["#{user.ext_user_id}"] : "_" %></td>
+                      <% end %>
+                    </tr>
+                  <% end %>
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
