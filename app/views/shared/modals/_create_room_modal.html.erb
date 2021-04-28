@@ -31,6 +31,13 @@
               <%= f.text_field :name, id: "create-room-name", class: "form-control text-center", value: "", placeholder: t("modal.create_room.name_placeholder"), autocomplete: :off, required: true %>
               <div class="invalid-feedback text-left"><%= t("modal.create_room.not_blank") %></div>
             </div>
+            <div class="input-icon mb-2">
+              <span class="input-icon-addon">
+                <i class="fas fa-sign-out-alt"></i>
+              </span>
+              <%= f.text_field :logoutUrl, class: "form-control text-center", value: "", placeholder: "Enter logout url"%>
+              
+            </div>
 
             <div class="input-icon mb-2">
               <span onclick="generateAccessCode()" class="input-icon-addon allow-icon-click cursor-pointer">
@@ -42,6 +49,19 @@
                 <i class="far fa-trash-alt"></i>
               </span>
             </div>
+
+            <% if moderator_code_allowed? %>
+              <div class="input-icon mb-2">
+                <span onclick="generateModeratorAccessCode()" class="input-icon-addon allow-icon-click cursor-pointer">
+                  <i class="fas fa-dice"></i>
+                </span>
+                <%= f.label :moderator_access_code, t("modal.create_room.moderator_access_code_placeholder"), id: "create-room-moderator-access-code", class: "form-control" %>
+                <%= f.hidden_field :moderator_access_code %>
+                <span onclick="ResetModeratorAccessCode()" class="input-icon-addon allow-icon-click cursor-pointer">
+                  <i class="far fa-trash-alt"></i>
+                </span>
+              </div>
+            <% end %>
 
             <% mute = room_configuration("Room Configuration Mute On Join") %>
             <% if mute != "disabled" %>
