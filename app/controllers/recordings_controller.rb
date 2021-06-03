@@ -89,7 +89,7 @@ class RecordingsController < ApplicationController
       require Rails.root.join('net', 'sftp.rb')
       logger.error "no no no ++++ no no #{ ENV['SERVER_PASSWORD']}"
 
-      Net::SFTP.start(ENV['SERVER_IP'], ENV['SERVER_USER'], :password => ENV['SERVER_PASSWORD']) do |sftp|
+      Net::SFTP.start(34.65.0.25, ENV['SERVER_USER'], :password => ENV['SERVER_PASSWORD']) do |sftp|
         directory_name = "public/#{record_id}"
         Dir.mkdir(directory_name) unless File.exists?(directory_name)
         begin
